@@ -21,15 +21,47 @@ A production-style machine learning project that combines:
 - `src/analyzing_faces/api`: API contracts and app
 - `scripts`: utility scripts for run/train/bootstrap
 - `tests`: unit tests
+- `.github/workflows`: CI/CD automation
 
-## Quick Start
+## Local Setup
 
 ```bash
 python -m venv .venv
 . .venv/Scripts/activate
-pip install -e .
+pip install -e .[dev]
+```
+
+## Run API locally
+
+```bash
 uvicorn analyzing_faces.api.app:app --reload
 ```
+
+## Run tests and lint
+
+```bash
+ruff check src tests
+pytest -q
+```
+
+## Docker
+
+Build and run with Docker Compose:
+
+```bash
+docker compose up --build
+```
+
+API endpoint:
+
+```text
+http://localhost:8000/health
+```
+
+## CI/CD
+
+- `CI` workflow: lint + unit tests on push and pull request.
+- `Docker Publish` workflow: builds and pushes image to GHCR on `main` and version tags.
 
 ## Run the realtime pipeline
 

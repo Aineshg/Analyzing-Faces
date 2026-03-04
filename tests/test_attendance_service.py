@@ -1,5 +1,4 @@
 from analyzing_faces.services.attendance import AttendanceService
-from analyzing_faces.config.settings import settings
 
 
 def test_attendance_file_bootstrap(tmp_path):

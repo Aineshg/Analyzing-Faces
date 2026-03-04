@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  analyzing-faces-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ghcr.io/aineshg/analyzing-faces:local
+    container_name: analyzing-faces-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./artifacts:/app/artifacts
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped

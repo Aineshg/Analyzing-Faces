@@ -34,7 +34,9 @@ class FaceRecognizer:
                     self._labels.append(person_dir.name)
                     self._encodings.append(encodings[0])
 
-    def identify(self, rgb_frame: np.ndarray, face_location: tuple[int, int, int, int]) -> IdentityMatch:
+    def identify(
+        self, rgb_frame: np.ndarray, face_location: tuple[int, int, int, int]
+    ) -> IdentityMatch:
         if not self._encodings:
             return IdentityMatch(name="UNKNOWN", confidence=0.0)
 

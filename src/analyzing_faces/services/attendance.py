@@ -42,7 +42,9 @@ class AttendanceService:
             "confidence": round(event.confidence, 4),
             "mask_label": event.mask_label,
         }
-        pd.concat([df, pd.DataFrame([row])], ignore_index=True).to_csv(self.attendance_file, index=False)
+        pd.concat([df, pd.DataFrame([row])], ignore_index=True).to_csv(
+            self.attendance_file, index=False
+        )
         return True
 
     def list_events(self) -> list[dict]:
