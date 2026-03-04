@@ -1,0 +1,22 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+
+# Data and artifacts
+data/raw/
+data/processed/
+artifacts/
+checkpoints/
+*.h5
+*.pt
+*.onnx
+
+# Tooling
+.pytest_cache/
+.mypy_cache/
+.coverage
+*.log
+.DS_Store
